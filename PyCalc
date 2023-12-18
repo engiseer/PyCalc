@@ -1,0 +1,53 @@
+def calculator():
+  ask_num1 = float(input("Enter first number"))
+  op = input("Pick an operator:\n+\n-\n*\n/\n")
+  ask_num2 = float(input("Enter second number:"))
+  
+  def math(a,b):
+    mathing = True
+    while mathing is True:
+      if op == "+":
+        mathing = False
+        return a + b
+      elif op == "-":
+        mathing = False
+        return a - b
+      elif op == "*":
+        mathing = False
+        return a * b
+      elif op == "/":
+        mathing = False
+        return a / b
+      else:
+        print("Enter valid inputs!\n")
+        break
+  
+  
+  result = math(ask_num1,ask_num2)
+  if result is not None:
+    print(f"The answer is {result}")
+  elif result is None:
+    calculator()
+  calc_on = True
+  while calc_on is True:
+  
+  
+    cont = input("Would you like to continue? Y or N")
+    if cont.lower() == "y":
+      op = input("Pick an operator:\n+\n-\n*\n/\n")
+      cont_num = float(input("Enter next number:"))
+      new_result = math(result,cont_num)
+      result = new_result
+      print(result)
+      continue
+    elif cont.lower() == "n":
+      globe_on = input("Would you like to start new? Y or N")
+      if globe_on.lower() == "y":
+        calculator()
+      elif globe_on.lower() == "n":
+        print("Thank you for using E's Calc")
+        calc_on = False
+        break
+    
+
+calculator()
